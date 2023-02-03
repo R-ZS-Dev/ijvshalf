@@ -33,6 +33,10 @@ app.get(archive+'/view/:id', archiveController.view);
 app.get(archive+'/single/:id', archiveController.single);
 app.get(archive+'/singlefull/:id', archiveController.singlefull);
 app.get(archive+'/rightsidefile/:id', archiveController.rightsidefile);
+app.get(archive+'/figure/:id', archiveController.figure);
+app.get(archive+'/download/plus/:id/:no', archiveController.download_plus);
+app.get(archive+'/view/plus/:id/:no', archiveController.view_plus);
+
 
 app.listen(3003, () => {
     console.log("Inpress Server is running on port 3003");
