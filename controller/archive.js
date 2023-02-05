@@ -13,7 +13,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             } else {
-                res.send(result);
+                res.send(result[0]);
             }
         })
     },
@@ -22,7 +22,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             } else {
-                res.send(result);
+                res.send(result[0]);
             }
         })
     },

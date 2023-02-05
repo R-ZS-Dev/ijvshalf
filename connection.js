@@ -1,7 +1,13 @@
 const mysql = require("mysql");
-const db = mysql.createConnection({user: "root", host: "localhost", password: "", database: "ijvs"});
+require('dotenv').config();
+var db = mysql.createPool({
+    connectionLimit: 10,
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+});
+db.Promise = global.Promise;
+global.db = db;
 
-global.db=db;
-module.exports={
-    db
-}
+module.exports = db;

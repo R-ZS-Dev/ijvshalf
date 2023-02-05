@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require('cors');
-const db=require('./connection');
+require("dotenv").config();
+require('./connection');
 app.use(cors());
 app.use(express.json());
 
@@ -23,6 +24,9 @@ const home='/home';
 const yearVolume='/yearVolume';
 const archive='/archive';
 
+app.get("/", function(req,res){
+    return res.send("Run");
+});
 app.get(inpress+"/view", inpressController.inpress);
 app.post(artical+'/create', articalController.subarticle);
 app.get(topArtical+'/view', top_articalController.top_artical);
@@ -38,6 +42,6 @@ app.get(archive+'/download/plus/:id/:no', archiveController.download_plus);
 app.get(archive+'/view/plus/:id/:no', archiveController.view_plus);
 
 
-app.listen(3003, () => {
+app.listen(process.env.PORT || 3003, () => {
     console.log("Inpress Server is running on port 3003");
 });
