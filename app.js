@@ -31,6 +31,7 @@ app.get(inpress+"/view", inpressController.inpress);
 app.post(artical+'/create', articalController.subarticle);
 app.get(topArtical+'/view', top_articalController.top_artical);
 app.post(userLogin+'/create', userLoginController.createUser);
+app.post(userLogin+'/login', userLoginController.loginUser);
 app.get(home+'/view', homeController.home);
 app.get(yearVolume+'/view', yearVolumeController.view);
 app.get(archive+'/view/:id', archiveController.view);

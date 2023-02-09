@@ -17,6 +17,17 @@ module.exports = {
                     res.send("Values Inserted");
                 }
             });
+    },
+    'loginUser': (req, res) => {
+        var email = req.body.email;
+        var password = req.body.password;
+        db.query("SELECT * FROM user_login WHERE email = '" + email + "' AND password = '" + password + "'", (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result.length > 0 ? {'message' : true, 'loginid' : result[0].id} : {'message' : false, 'loginid' : 0});
+            }
+        });
     }
 }
 
