@@ -1,6 +1,6 @@
 module.exports={
     'inpress' : (req,res) =>{
-        db.query("Select * FROM inpress_table ORDER BY DESC LIMIT 5", (err, result) => {
+        db.query("Select * FROM inpress_table ORDER BY id DESC", (err, result) => {
             if(err) {
                 console.log(err);
             } else {

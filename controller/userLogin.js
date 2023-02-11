@@ -12,9 +12,9 @@ module.exports = {
         db.query("INSERT INTO user_login (first_name, last_name, ph_num, email, password, user_address, city_name, country_name) VALUES (?,?,?,?,?,?,?,?)",
             [first_name, last_name, ph_num, email, password, user_address, city_name, country_name], (err, result) => {
                 if (err) {
-                    console.log(err);
+                    res.send({message: false, result: err});
                 } else {
-                    res.send("Values Inserted");
+                    res.send({message: true, result: "Successfully Register"})
                 }
             });
     },
