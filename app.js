@@ -7,8 +7,6 @@ app.use(cors());
 app.use(express.json());
 const multer = require("multer");
 
-
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "uploads/");
@@ -28,6 +26,8 @@ const userLoginController = require('./controller/userLogin');
 const homeController = require('./controller/home');
 const yearVolumeController = require('./controller/yearVolume');
 const archiveController = require('./controller/archive');
+// 
+const vistorController = require('./controller/sitevisitor');
 
 // routes
 const inpress = "/inpress";
@@ -37,6 +37,7 @@ const topArtical = '/topArtical';
 const home = '/home';
 const yearVolume = '/yearVolume';
 const archive = '/archive';
+const sitevisitor = '/sitevisitor';
 
 app.get("/", function (req, res) {
     return res.send("Run");
@@ -59,6 +60,9 @@ app.get(archive + '/rightsidefile/:id', archiveController.rightsidefile);
 app.get(archive + '/figure/:id', archiveController.figure);
 app.get(archive + '/download/plus/:id/:no', archiveController.download_plus);
 app.get(archive + '/view/plus/:id/:no', archiveController.view_plus);
+// 
+app.get(sitevisitor + '/newVistor', vistorController.newVistor);
+app.get(sitevisitor + '/viewVistor', vistorController.viewVistor);
 
 
 app.listen(process.env.PORT || 3003, () => {
