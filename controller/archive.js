@@ -62,4 +62,13 @@ module.exports = {
             }
         })
     },
+    'search_title': (req, res) => {
+        db.query("SELECT * FROM archive_table WHERE article_title LIKE '%"+req.params.search+"%' ", (err, result) => {
+            if(err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        })
+    },
 }

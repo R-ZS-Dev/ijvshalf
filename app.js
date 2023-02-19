@@ -60,6 +60,7 @@ app.get(archive + '/rightsidefile/:id', archiveController.rightsidefile);
 app.get(archive + '/figure/:id', archiveController.figure);
 app.get(archive + '/download/plus/:id/:no', archiveController.download_plus);
 app.get(archive + '/view/plus/:id/:no', archiveController.view_plus);
+app.get(archive + '/search/:search', archiveController.search_title);
 // 
 app.get(sitevisitor + '/newVistor', vistorController.newVistor);
 app.get(sitevisitor + '/viewVistor', vistorController.viewVistor);
